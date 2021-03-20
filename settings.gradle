@@ -1,0 +1,3 @@
+include ':balluptoleftview'
+include ':app'
+rootProject.name = "LinkedBallUpToLeftView"
