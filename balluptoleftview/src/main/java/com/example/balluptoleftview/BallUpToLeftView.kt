@@ -203,4 +203,13 @@ class BallUpToLeftView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : BallUpToLeftView {
+            val view : BallUpToLeftView = BallUpToLeftView(activity)
+            activity.setContentView(view)
+            return view
+        }
+
+    }
 }
