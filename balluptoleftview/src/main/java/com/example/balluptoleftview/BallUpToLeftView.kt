@@ -178,4 +178,27 @@ class BallUpToLeftView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BallUpToLeftView) {
+
+        private val animator : Animator = Animator(view)
+        private val butl : BallUpToLeft = BallUpToLeft(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun draw(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            butl.draw(canvas, paint)
+            animator.animate {
+                butl.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            butl.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
