@@ -18,7 +18,7 @@ val colors : Array<Int> = arrayOf(
 ).map {
     Color.parseColor(it)
 }.toTypedArray()
-val parts : Int = 3
+val parts : Int = 4
 val scGap : Float = 0.02f / parts
 val strokeFactor : Float = 90f
 val sizeFactor : Float = 10.2f
@@ -36,10 +36,11 @@ fun Canvas.drawBallUpToLeft(scale : Float, w : Float, h : Float, paint : Paint) 
     val sf1 : Float = sf.divideScale(0, parts)
     val sf2 : Float = sf.divideScale(1, parts)
     val sf3 : Float = sf.divideScale(2, parts)
+    val sf4 : Float = sf.divideScale(3, parts)
     save()
-    translate((w - size) - (w / 2 - size) * sf3, 0f)
-    drawCircle(0f, h / 2 - size, size * sf1, paint)
-    drawLine(0f, 0f, 0f, h * 0.5f * sf2, paint)
+    translate((w - size) - (w / 2 - size) * sf4, 0f)
+    drawCircle(0f, h - size - (h / 2 - size) * sf2, size * sf1, paint)
+    drawLine(0f, 0f, 0f, h * 0.5f * sf3, paint)
     restore()
 }
 
